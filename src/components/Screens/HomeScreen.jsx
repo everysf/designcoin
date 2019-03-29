@@ -531,7 +531,6 @@ const Leadership = styled.div`
     padding: 100px 0 0px;
   }
 
-
   h1 {
     font-size: 44px;
     color: white;
@@ -624,8 +623,6 @@ const Leadership = styled.div`
       justify-content: space-evenly;
       flex-wrap: wrap;
 
-      
-
       img {
         height: 100px;
         margin: 10px auto 20px;
@@ -671,13 +668,51 @@ const Leadership = styled.div`
 
 const Contact = styled.div`
 
-  // position: absolute;
   z-index: 10;
   background-image: url(./img/beach.png);
   background-size: cover;
 
+  padding: 200px 20px;
+
   iframe {
     margin: 40px auto;
+  }
+
+  .formEmail {
+
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    max-width: 900px;
+    margin: 0 auto;
+
+    @media (max-width: 800px) {
+      h1 {
+        font-size: 20px;
+      }
+    }
+
+    a {
+      text-align: center;
+      border: 1px solid white;
+      padding: 10px;
+      margin: 20px auto 0;
+      transition: .2s ease;
+      letter-spacing: 2px;
+      font-family: 'Roboto Slab';
+      @media (max-width: 800px) {
+        font-size: 18px;
+      }
+    }
+
+    a:hover {
+      border: 1px solid #0000ff;
+      background-color: #0000ff;
+      color: white;
+    }
+
   }
 
   .contactSheet {
@@ -686,7 +721,7 @@ const Contact = styled.div`
     background: linear-gradient(to top, rgba(244,244,244,1),rgba(250,250,250,1));
     border-radius: 10px;
     max-width: 350px;
-    
+  
     @media(max-width: 800px){
       margin: 50px auto;
       padding: 20px;
@@ -874,8 +909,15 @@ const HomeScreen = props => {
         </div>
       </Leadership>
 
-      {/* <Contact id="contact">
-        <form action="https://docs.google.com/forms/u/2/d/e/1FAIpQLSfY1RgfcvP-ALHKEcxOL_KF7UOpmhai4oaz4AiWV2Z8y-ndIA/formResponse?embedded=true">
+      <Contact id="contact">
+        <div className="formEmail">        
+          <h1>Let's Chat</h1>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfY1RgfcvP-ALHKEcxOL_KF7UOpmhai4oaz4AiWV2Z8y-ndIA/viewform?usp=sf_link">CONTACT</a>
+        </div>
+
+
+
+        {/* <form action="https://docs.google.com/forms/u/2/d/e/1FAIpQLSfY1RgfcvP-ALHKEcxOL_KF7UOpmhai4oaz4AiWV2Z8y-ndIA/formResponse?embedded=true">
         <input type="text" jsname="ibnC6b"/>
         <input type="submit">
         </input>
@@ -885,14 +927,16 @@ const HomeScreen = props => {
         <div className="contactSheet">
         <h1>Let's Chat.</h1>
         <ReactContactForm className="contactForm" to="kevin@designcoin.us" />
-        </div>
-      </Contact> */}
+        </div> */}
+
+      </Contact>
 
 
 
       <Footer>
         <img src="./img/designcoinlogo.png" alt=""/>
         <h3>Designed responsibly in California.</h3>
+
       </Footer>
 
       </AboutSection>

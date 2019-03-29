@@ -452,6 +452,7 @@ const DesignCoinSection = styled.div`
 
       @media (max-width: 800px) {
         height: 90px;
+        margin: 30px auto 0 !important;
       }
 
     }
@@ -580,7 +581,11 @@ const Leadership = styled.div`
     justify-content: center;
     border: 1px solid white;
     padding: 40px 0;
-    background: linear-gradient(to top, rgba(0,0,0,.2), rgba(0,0,0,.1) 90%);
+    background: linear-gradient(to top, rgba(0,0,0,.5), rgba(0,0,0,.1) 90%);
+
+    @media (max-width: 800px) {
+      margin: 50px 10px 0 !important;
+    }
 
     h2 {
 
@@ -601,7 +606,7 @@ const Leadership = styled.div`
 
       @media (max-width: 800px) {
         margin: 20px 10px;
-        width: 160px;
+        width: 150px;
       }
 
     }

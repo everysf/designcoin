@@ -582,10 +582,10 @@ const Leadership = styled.div`
     justify-content: center;
     border: 1px solid white;
     padding: 40px 0;
-    background: linear-gradient(to top, rgba(0,0,0,.5), rgba(0,0,0,.1) 90%);
+    background: linear-gradient(to top, rgba(0,0,255,.5), rgba(0,0,0,.1) 90%);
 
     @media (max-width: 800px) {
-      margin: 50px 10px 0 !important;
+      margin: 50px 10px !important;
     }
 
     h2 {

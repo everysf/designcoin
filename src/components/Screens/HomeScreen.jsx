@@ -137,19 +137,20 @@ const AboutSection = styled.div`
     }
 
     .text {
-
-
   
       z-index: 10;
       background-color: rgba(255,255,255,.85);
       // background: red;
       width: 100vw;
-      padding: 100px 0 200px;
+      padding: 300px 0 450px;
       display: flex;
       justify-content: center;
       transition. 3s ease;
       transform: skew(0,5deg);
 
+      @media(max-width: 800px){
+        padding: 100px 0 200px;
+      }
 
       h3 {
         transform: skew(0,-5deg);
@@ -315,42 +316,42 @@ const Line = styled.div`
 
 `
 
-const Line2 = styled.div`
+// const Line2 = styled.div`
 
-    height: 200px;
-    margin: -250px auto;
-    z-index: 1;
-    width: 1px;
-    background: #4d4d4d;
-    left: 50%;
-    animation-name: growshrink;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
+//     height: 200px;
+//     margin: -250px auto;
+//     z-index: 1;
+//     width: 1px;
+//     background: #4d4d4d;
+//     left: 50%;
+//     animation-name: growshrink;
+//     animation-duration: 2s;
+//     animation-iteration-count: infinite;
 
-    @keyframes growshrink {
-      0% {
-          height: 10px;
-          opacity: 0;
-      }
-      5% {
-        opacity: 1;
-      }
-      25% {
-        background: #ff00ff;
-      }
-      70% {
-        opacity: 1;
-      }
-      75%{
-          background: #0000ff;
-      }
-      100% {
-        opacity: 0;
-        height: 200px;
-      }
-    }
+//     @keyframes growshrink {
+//       0% {
+//           height: 10px;
+//           opacity: 0;
+//       }
+//       5% {
+//         opacity: 1;
+//       }
+//       25% {
+//         background: #ff00ff;
+//       }
+//       70% {
+//         opacity: 1;
+//       }
+//       75%{
+//           background: #0000ff;
+//       }
+//       100% {
+//         opacity: 0;
+//         height: 200px;
+//       }
+//     }
 
-`
+// `
 
 const ScrollText = styled.div`
 

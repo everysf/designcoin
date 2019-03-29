@@ -814,9 +814,8 @@ const HomeScreen = props => {
         <div className="bio">
           <div className="headshot"></div>
           <h2></h2>
-          <h3>Kevin Macaraeg designs graphics, interfaces,  websites, and experiences for startups, restaurants, and his own projects. Macaraeg leads a small team of freelance designers and developers to produce beautiful and engaging products for clients.<br></br><a href="https://www.linkedin.com/feed/">See his LinkedIn</a></h3>
+          <h3>Kevin Macaraeg designs graphics, interfaces,  websites, and experiences for startups, restaurants, and his own projects. Macaraeg leads a small team of freelance designers and developers to produce beautiful and engaging products for clients.<br></br><br></br><a href="https://www.linkedin.com/feed/">See LinkedIn</a></h3>
         </div>
-
         <div className="kevin">
           <h2>Experiences</h2>
           <div className="icons">

@@ -154,12 +154,11 @@ const AboutSection = styled.div`
 
       h3 {
         transform: skew(0,-5deg);
-        font-family: 'Montserrat';
         font-weight: 300;
         font-size: 36px;
         line-height: 54px;
         max-width: 800px;
-
+        font-family: 'Roboto Slab';
         span {
 
 
@@ -170,6 +169,7 @@ const AboutSection = styled.div`
         }
 
         .bold {
+          font-family: 'Montserrat';
           font-weight: 700;
           transition: .5s ease;
           border-bottom: 1px solid rgba(0,0,0,0);

@@ -154,7 +154,7 @@ const AboutSection = styled.div`
 
       h3 {
         transform: skew(0,-5deg);
-        font-family: 'Roboto Slab', serif;
+        font-family: 'Montserrat';
         font-weight: 300;
         font-size: 36px;
         line-height: 54px;
@@ -201,6 +201,7 @@ const AboutSection = styled.div`
           margin: 25px;
         }
       }
+      
 
       margin-top: -150px;
       z-index: 20;
@@ -543,7 +544,6 @@ const Leadership = styled.div`
 
   a:hover {
     color: #ff00ff;
-    margin-left: 10px;
   }
   
   .headshot {
@@ -673,6 +673,12 @@ const Contact = styled.div`
 
   // position: absolute;
   z-index: 10;
+  background-image: url(./img/beach.png);
+  background-size: cover;
+
+  iframe {
+    margin: 40px auto;
+  }
 
   .contactSheet {
     padding: 50px;
@@ -775,14 +781,14 @@ const HomeScreen = props => {
 
           <div className="text" id="about">
             <h3>
-              <span className="bold">What is Decentralized Design?</span><br></br><span className="gray">
-                Not sure! But it's catchy and you thought it was interesting enough to keep reading. Decentralization is key philosophy that the DesignCoin team is working towards.</span>
+              <span className="bold">DESIGNCOIN</span><br></br><span className="gray">We are a San Francisco based web design agency servicing startups, crypto companies, and small businesses. We design and code everything in house with pride, diligence, and sometimes craft beer.
+              </span>
             </h3>
           </div>
 
           <div className="textAlt">
             <h3>
-              <span className="bold">DESIGNCOIN</span><span className="gray"> is a San Francisco based web design agency servicing startups, crypto companies, and small businesses. We design and code everything in house with pride, diligence, and sometimes craft beer.</span>
+              <span className="bold">DESIGNING WITH PASSION</span><br></br><span className="gray">We are here to help you create web products and digital assets that will se you apart from the competition.</span>
             </h3>
           </div>
 
@@ -814,7 +820,7 @@ const HomeScreen = props => {
         <div className="bio">
           <div className="headshot"></div>
           <h2></h2>
-          <h3>Kevin Macaraeg designs graphics, interfaces,  websites, and experiences for startups, restaurants, and his own projects. Macaraeg leads a small team of freelance designers and developers to produce beautiful and engaging products for clients.<br></br><br></br><a href="https://www.linkedin.com/feed/">See LinkedIn</a></h3>
+          <h3>Kevin Macaraeg designs graphics, interfaces,  websites, and experiences for startups, restaurants, and his own projects. Macaraeg leads a team of designers and developers to produce beautiful and engaging products for clients.</h3><h3 style={{textAlign: "center", marginTop: "20px"}}><a href="https://www.linkedin.com/feed/">See LinkedIn</a></h3>
         </div>
         <div className="kevin">
           <h2>Experiences</h2>
@@ -842,7 +848,7 @@ const HomeScreen = props => {
             <div className="iconbox">
               <img src="./img/icons-05.svg" alt="" />
               <h4>React.js</h4>
-              <h5>Front-end Framework</h5>
+              <h5>Front End Design</h5>
             </div>
             <div className="iconbox">
               <img src="./img/icons-06.svg" alt="" />
@@ -857,7 +863,7 @@ const HomeScreen = props => {
             <div className="iconbox">
               <img src="./img/icons-08.svg" alt="" />
               <h4>Origami Studio</h4>
-              <h5>Animation Software</h5>
+              <h5>Web Animation</h5>
             </div>
             <div className="iconbox">
               <img src="./img/icons-09.svg" alt="" />
@@ -868,12 +874,21 @@ const HomeScreen = props => {
         </div>
       </Leadership>
 
-      <Contact id="contact">
+      {/* <Contact id="contact">
+        <form action="https://docs.google.com/forms/u/2/d/e/1FAIpQLSfY1RgfcvP-ALHKEcxOL_KF7UOpmhai4oaz4AiWV2Z8y-ndIA/formResponse?embedded=true">
+        <input type="text" jsname="ibnC6b"/>
+        <input type="submit">
+        </input>
+        
+        </form>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfY1RgfcvP-ALHKEcxOL_KF7UOpmhai4oaz4AiWV2Z8y-ndIA/viewform?embedded=true" width="640" height="1176" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
         <div className="contactSheet">
         <h1>Let's Chat.</h1>
         <ReactContactForm className="contactForm" to="kevin@designcoin.us" />
         </div>
-      </Contact>
+      </Contact> */}
+
+
 
       <Footer>
         <img src="./img/designcoinlogo.png" alt=""/>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
+import ReactContactForm from 'react-mail-form';
 
 const Screen = styled.div`
   z-index: 5;
@@ -26,6 +27,7 @@ const Screen = styled.div`
 
 const BackgroundImage = styled.div`
 
+  z-index: 5;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -40,6 +42,18 @@ const BackgroundImage = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+  animation-name: fadeIn;
+  animation-duration: 2s;
+
+  @keyframes fadeIn {
+    0% {
+      top: 45%;
+    },
+    100% {
+      top: 50%;
+    }
+  }
 `
 
 const City = styled.div`
@@ -51,6 +65,22 @@ const City = styled.div`
   background-position: center;
   z-index: 5;
   transition: 1.5s ease;
+  background-repeat: no-repeat;
+
+  animation-name: fadeIn;
+  animation-duration: 2s;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      filter: blur(10px)
+    },
+    100% {
+      opacity: 1;
+      filter: blur(0px)
+    }
+  }
+
 
 `
 
@@ -67,17 +97,25 @@ const EmptyDiv = styled.div`
 
 const AboutSection = styled.div`
 
-    // transform: skew(0, 15deg);
-
     min-height: 100vh;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     background-color: white;
     min-width: 100%;
 
+    @media(max-width: 800px){
+      padding: 100px 0 300px;
+      h3 {
+        font-size: 20px !important;
+        line-height: 30px !important;
+        margin: 25px;
+      }
+    }
+
     .color {
       margin-top: 100px;
-      z-index: 0;
+      z-index: 1;
       width: 100vw;
       height: 100vh;
       background-color: white;
@@ -99,11 +137,14 @@ const AboutSection = styled.div`
     }
 
     .text {
-      z-index: 20;
-      background-color: rgba(255,255,255,.75);
+
+
+  
+      z-index: 10;
+      background-color: rgba(255,255,255,.85);
       // background: red;
       width: 100vw;
-      padding: 300px 0 400px;
+      padding: 100px 0 200px;
       display: flex;
       justify-content: center;
       transition. 3s ease;
@@ -116,9 +157,7 @@ const AboutSection = styled.div`
         font-weight: 300;
         font-size: 36px;
         line-height: 54px;
-        
         max-width: 800px;
-
 
         span {
 
@@ -151,8 +190,17 @@ const AboutSection = styled.div`
 
     }
 
-
     .textAlt {
+
+      @media(max-width: 800px){
+        padding: 100px 0 100px;
+        h3 {
+          font-size: 20px !important;
+          line-height: 30px !important;
+          margin: 25px;
+        }
+      }
+
       margin-top: -150px;
       z-index: 20;
       background-color: rgba(244,244,244,1);
@@ -160,9 +208,13 @@ const AboutSection = styled.div`
       width: 100vw;
       padding: 300px 0;
       display: flex;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
       transition. 3s ease;
       transform: skew(0,-5deg);
+
+
 
       h3 {
         transform: skew(0,5deg);
@@ -225,38 +277,10 @@ const AboutSection = styled.div`
 
 `
 
-const MovingText = styled.div`
-
-    text-align: center;
-
-    // animation-name: scroll;
-    // animation-duration: 2s;
-    // animation-iteration-count: infinite;
-
-    @keyframes scroll {
-      0% {
-      left: 0;
-      opacity: 0;
-      }
-
-      50%{
-
-        opacity: 1
-      }
-
-      100% {
-      left: 100%;
-      opacity: 0;
-      }
-    }
-
-
-`
-
 const Line = styled.div`
 
     height: 400px;
-    margin: -200px auto;
+    margin: -160px auto;
     z-index: 1;
     width: 1px;
     background: #4d4d4d;
@@ -291,10 +315,47 @@ const Line = styled.div`
 
 `
 
+const Line2 = styled.div`
+
+    height: 200px;
+    margin: -250px auto;
+    z-index: 1;
+    width: 1px;
+    background: #4d4d4d;
+    left: 50%;
+    animation-name: growshrink;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+
+    @keyframes growshrink {
+      0% {
+          height: 10px;
+          opacity: 0;
+      }
+      5% {
+        opacity: 1;
+      }
+      25% {
+        background: #ff00ff;
+      }
+      70% {
+        opacity: 1;
+      }
+      75%{
+          background: #0000ff;
+      }
+      100% {
+        opacity: 0;
+        height: 200px;
+      }
+    }
+
+`
+
 const ScrollText = styled.div`
 
     h5 {
-      margin-top: -190px;
+      margin-top: -150px;
       transform: rotate(-90deg) translate(100px, 38px);
       color: #ff00ff;
     }
@@ -302,6 +363,10 @@ const ScrollText = styled.div`
 `
 
 const ScrollItems = styled.div`
+
+@media(max-width: 800px) {
+  display: none;
+}
 
   position: absolute;
   right: 60px;
@@ -312,14 +377,25 @@ const ScrollItems = styled.div`
 
 const DesignCoinSection = styled.div`
 
-    postition: absolute;
-    padding: 300px 0 300px;
-    z-index: 200;
+    padding: 250px 0 200px;
+    z-index: 20;
     width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     // background-image: url(./img/wavy.png);
+
+    @media(max-width: 800px) {
+      h3, h4 {
+        font-size: 20px !important;
+        margin: 10px !important;
+      }
+      h1 {
+        font-size: 30px !important;
+        margin: 0;
+      }
+      padding: 100px 0 100px;
+    }
 
     h1 {
       font-size: 48px;
@@ -328,13 +404,15 @@ const DesignCoinSection = styled.div`
 
     h3 {
       font-size: 32px;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
       font-weight: 700;
     }
 
     h4 {
       margin-bottom: 30px;
       font-size: 24px;
+      font-family: "Roboto Slab";
+      font-weight: 300;
     }
 
     .categoryBox {
@@ -351,54 +429,79 @@ const DesignCoinSection = styled.div`
       width: auto;
       display: flex;
 
+      @media (max-width: 800px) {
+        flex-direction: column;
+      }
+
     }
 
     .servicesOffered {
-      padding: 70px 30px;
+      padding: 70px 30px 0;
       box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+      border-radius: 10px;
       max-width: 900px;
       margin: 0 auto;
+      background: linear-gradient(to top, rgba(0,0,255,.1), rgba(255,0,255,.1) 3%,rgba(0,0,0,0) 10%)
+
     }
 
     img {
       height: 150px;
       margin: 0 auto;
+      text-align: center;
+
+      @media (max-width: 800px) {
+        height: 90px;
+      }
+
     }
-
-`
-
-const FooterText = styled.div`
-
-    display: flex;
-    border-top: 1px solid #e5e5e5;
-    padding: 20px;
-    justify-content: space-between;
-
-    h3 {
-      padding: 10px;
+    
+    .ferry {
+      display: flex;
+      justify-content: center;
     }
 
 `
 
 const Footer = styled.div`
-position: absolute;
 
-display: flex;
-flex-direction: column;
-justify-content: center;
-background-color: #d4d4d4;
-width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f1f1f1;
+  width: 100%;
+  z-index: 50;
 
-img {
-  height: 100px;
-  margin: 0 auto;
-}
+  min-height: 200px;
+
+  img {
+    height: 50px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    text-align: center;
+
+  }
+
+  @media (max-width: 800px) {
+    min-height: 100vh;
+    margin-bottom: -100vh;
+    h3 {
+      font-size: 20px !important;
+    }
+    img {
+      margin-bottom: 0 !important;
+    }
+  }
 
 `
 
 const Leadership = styled.div`
 
-  position: absolute;
+  // position: absolute;
   background-image: url(./img/wavy.png);
   min-height: 500px;
   width: 100vw;
@@ -409,154 +512,275 @@ const Leadership = styled.div`
   justify-content: center;
   margin: 0 auto;
   color: white;
+  background-repeat: no-repeat;
+  z-index: 10;
+
+  @media(max-width: 800px) {
+    h3, h4 {
+      font-size: 20px !important;
+      line-height: 30px;
+      margin: 10px !important;
+    }
+    h1 {
+      font-size: 30px !important;
+      margin: 0;
+    }
+    padding: 100px 0 0px;
+  }
+
 
   h1 {
     font-size: 44px;
     color: white;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+  }
+
+  a {
+    transition: .2s ease;
+  }
+
+  a:hover {
+    color: #ff00ff;
+    margin-left: 10px;
   }
   
+  .headshot {
+    background: url(./img/thumbnail.jpg);
+    height: 200px;
+    width: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 200px;
+    margin: 10px auto 40px;
+  };
+
+  .bio {
+    padding: 20px 50px;
+    max-width: 600px;
+    margin: 0 auto;
+    h3 {
+      font-size: 25px;
+      line-height: 40px;
+      font-family: "Roboto Slab";
+      font-weight: 300;
+    }
+
+    @media (max-width: 800px) {
+      padding: 20px !important;
+
+    }
+  }
+
   .kevin {
 
-    max-width: 900px;
+    max-width: 880px;
     display: flex;
-    margin: 0 auto;
+    margin: 50px auto 0;
     flex-direction: column;
     justify-content: center;
-
-    .headshot {
-      background: url(./img/thumbnail.jpg);
-      height: 200px;
-      width: 200px;
-      background-size: cover;
-      background-position: center;
-      border-radius: 200px;
-      margin: 10px auto 40px;
-    };
-
-
+    border: 1px solid white;
+    padding: 40px 0;
+    background: linear-gradient(to top, rgba(0,0,0,.2), rgba(0,0,0,.1) 90%);
 
     h2 {
+
       font-size: 36px;
       text-align: center;
-      margin: 10px;
+      margin: 10px 10px 20px;
+
     };
 
     .iconbox {
-      width: 200px;
+
+      width: 240px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      margin: 40px 25px;
+      transition: .2s ease;
+
+      @media (max-width: 800px) {
+        margin: 20px 10px;
+        width: 160px;
+      }
+
+    }
+
+    .iconbox:hover {
+      margin: 35px 25px 45px;
+      
     }
 
     .icons {
 
       min-height: 400px;
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+
+      
 
       img {
         height: 100px;
-        margin: 10px auto;
+        margin: 10px auto 20px;
         text-align: center;
       }
 
       h4 {
         text-align: center;
+        font-size: 13px;
+        margin-bottom: 2px;
+      }
+
+      h5 {
+        font-size: 18px;
+        text-align: center;
+        line-height: 30px;
+        font-family: "Roboto Slab"
+      }
+      
+      @media (max-width: 800px) {
+
+        img {
+          height: 60px !important;
+          margin: 10px auto 5px;
+        }
+
+        h4 {
+          font-size: 20px !important;
+          line-height: 30px !important;
+          margin: 0 !important;
+        }
+
+        h5 {
+          font-size: 15px !important;
+          line-height: 20px !important;
+        }
+
       }
     
   }
 
 `
 
-const Experience = [
-  {
-    icon: "./img/icons-01.svg",
-    title: "Crypto",
-    subtitle: "Design Experience"
-  },
-  {
-    icon: "./img/icons-02.svg",
-    title: "Snapchat",
-    subtitle: "Content Creator"
-  },
-  {
-    icon: "./img/icons-03.svg",
-    title: "Web Development",
-    subtitle: "UC Berkeley"
-  },
-  {
-    icon: "./img/icons-04.svg",
-    title: "Graphic Design and Marketing",
-    subtitle: "San Francisco State"
-  },
-  {
-    icon: "./img/icons-05.svg",
-    title: "React.js",
-    subtitle: "Front End Technology"
-  },
-  {
-    icon: "./img/icons-06.svg",
-    title: "Sketch",
-    subtitle: "UI/UX Prototyping"
-  },
-  {
-    icon: "./img/icons-07.svg",
-    title: "Adobe Products",
-    subtitle: "Full Proficiencies"
-  },
-  {
-    icon: "./img/icons-08.svg",
-    title: "Origami Studio",
-    subtitle: "Animation Rendering"
-  },
-]
+const Contact = styled.div`
+
+  // position: absolute;
+  z-index: 10;
+
+  .contactSheet {
+    padding: 50px;
+    margin: 200px auto;
+    background: linear-gradient(to top, rgba(244,244,244,1),rgba(250,250,250,1));
+    border-radius: 10px;
+    max-width: 350px;
+    
+    @media(max-width: 800px){
+      margin: 50px auto;
+      padding: 20px;
+      width: 300px;
+    }
+
+    h1 {
+      margin-bottom: 15px;
+    }
+  }
+
+
+  .contactForm {
+
+
+
+    input {
+      margin: 10px;
+      max-width: 700px;
+      font-size: 18px;
+      padding: 10px;
+      border: none;
+      width: 310px;
+      
+      @media(max-width: 800px){
+        width: 260px;
+      }
+
+    }
+
+    textarea {
+      margin: 10px;
+      max-width: 700px;
+      font-size: 18px;
+      padding: 10px;
+      border: none;
+      width: 310px;
+      @media(max-width: 800px){
+        width: 260px;
+      }
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      background-color: rgba(255,255,255,0);
+      border: 1px solid #0000ff;
+      padding: 10px;
+      font-size: 18px;
+      widthL 100%;
+      margin: 10px;
+      color: #0000ff;
+      transition: .2s ease;
+    }
+
+    a:hover {
+      background-color: rgba(0,0,255,1);
+      color: #ffffff;
+    }
+
+
+  }
+
+`
+
 
 const HomeScreen = props => {
   return (
-    <Screen>
+    <Screen id="top">
 
-      <MovingText>
-      </MovingText>
 
-      <EmptyDiv>
-      </EmptyDiv>
+      <EmptyDiv />
 
-      <AboutSection>
-
-        <div className="frames">
-
-          <ScrollItems>
+      <ScrollItems>
             <ScrollText>
               <h5>SCROLL DOWN</h5>
             </ScrollText>
             <Line></Line>
           </ScrollItems>
 
-          <div className="color">
-            <img src=".img/wavy.png" alt="" />
-          </div>
+      <AboutSection>
+
+        
+          <div className="color"></div>
 
           <BackgroundImage id="cityWrap">
             <City id="city"></City>
           </BackgroundImage>
-          <div className="text">
+
+          <div className="text" id="about">
             <h3>
-              <span className="bold">What is Decentralized Design?
-                    </span><br></br><span className="gray">
-                Not sure! But it's catchy and you thought it was interesting enough to keep reading.</span></h3>
+              <span className="bold">What is Decentralized Design?</span><br></br><span className="gray">
+                Not sure! But it's catchy and you thought it was interesting enough to keep reading. Decentralization is key philosophy that the DesignCoin team is working towards.</span>
+            </h3>
           </div>
 
           <div className="textAlt">
             <h3>
-              <span className="bold">DESIGNCOIN
-                    </span>
-              <span className="gray"> is a web design agency servicing startups, crypto companies, and small businesses based in San Francisco, California. We make everything in house with pride, diligence, and Lagunitas.</span></h3>
+              <span className="bold">DESIGNCOIN</span><span className="gray"> is a San Francisco based web design agency servicing startups, crypto companies, and small businesses. We design and code everything in house with pride, diligence, and sometimes craft beer.</span>
+            </h3>
           </div>
-        </div>
 
-      </AboutSection>
-
-      <DesignCoinSection id="services">
-        <img src="./img/ferry.png" alt="" />
+          <DesignCoinSection id="services">
         <div className="servicesOffered">
           <h1>Services</h1>
           <div className="categories">
@@ -573,29 +797,88 @@ const HomeScreen = props => {
               <h4>Consultation</h4>
             </div>
           </div>
+          <div className="ferry">
+            <img src="./img/ferry.png" alt="" />
+          </div>
         </div>
       </DesignCoinSection>
 
-      <Leadership>
-        <h1>Team</h1>
-        <div className="kevin">
+      <Leadership id="kevin">
+        <h1>Lead Designer</h1>
+        <div className="bio">
           <div className="headshot"></div>
-          <h2>Kevin Macaraeg</h2>
+          <h2></h2>
+          <h3>Kevin Macaraeg designs graphics, interfaces,  websites, and experiences for startups, restaurants, and his own projects. Macaraeg leads a small team of freelance designers and developers to produce beautiful and engaging products for clients.<br></br><a href="https://www.linkedin.com/feed/">See his LinkedIn</a></h3>
+        </div>
+
+        <div className="kevin">
+          <h2>Experiences</h2>
           <div className="icons">
             <div className="iconbox">
               <img src="./img/icons-01.svg" alt="" />
-              <h4>Crypto</h4>
+              <h4>Crypto Industry</h4>
+              <h5>Web Design</h5>
+            </div>
+            <div className="iconbox">
+              <img src="./img/icons-02.svg" alt="" />
+              <h4>Snapchat</h4>
+              <h5>Content Analyst</h5>
+            </div>
+            <div className="iconbox">
+              <img src="./img/icons-03.svg" alt="" />
+              <h4>UC Berkeley</h4>
+              <h5>Web Development</h5>
+            </div>
+            <div className="iconbox">
+              <img src="./img/icons-04.svg" alt="" />
+              <h4>SF State</h4>
+              <h5>Design + Marketing</h5>
+            </div>
+            <div className="iconbox">
+              <img src="./img/icons-05.svg" alt="" />
+              <h4>React.js</h4>
+              <h5>Front-end Framework</h5>
+            </div>
+            <div className="iconbox">
+              <img src="./img/icons-06.svg" alt="" />
+              <h4>Sketch</h4>
+              <h5>UI/UX Prototyping</h5>
+            </div>
+            <div className="iconbox">
+              <img src="./img/icons-07.svg" alt="" />
+              <h4>Adobe Suite</h4>
+              <h5>Full Proficiencies</h5>
+            </div>
+            <div className="iconbox">
+              <img src="./img/icons-08.svg" alt="" />
+              <h4>Origami Studio</h4>
+              <h5>Animation Software</h5>
+            </div>
+            <div className="iconbox">
+              <img src="./img/icons-09.svg" alt="" />
+              <h4>Web Design</h4>
+              <h5>Experienced Contractor</h5>
             </div>
           </div>
         </div>
       </Leadership>
 
-      {/* <Footer>
-        <FooterText>
-          <h3>DesignCoin is a California design agency that loves to make beautiful and engaging experiences.</h3>
-          <h3>We're hiring!</h3>
-        </FooterText>
-      </Footer> */}
+      <Contact id="contact">
+        <div className="contactSheet">
+        <h1>Let's Chat.</h1>
+        <ReactContactForm className="contactForm" to="kevin@designcoin.us" />
+        </div>
+      </Contact>
+
+      <Footer>
+        <img src="./img/designcoinlogo.png" alt=""/>
+        <h3>Designed responsibly in California.</h3>
+      </Footer>
+
+      </AboutSection>
+
+
+
     </Screen>
   )
 }

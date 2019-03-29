@@ -26,6 +26,8 @@ const Content = styled.div`
 `
 
 const Navigator = styled.div`
+
+
 a {
   color: black;
 }
@@ -51,6 +53,11 @@ z-index: 100;
     z-index: 200;
     display: flex;
     padding: 18px 20px 30px;
+    color: black;
+
+    @media(max-width: 800px) {
+      display: none;
+    }
 
     h4:hover {
       cursor: pointer;
@@ -65,6 +72,9 @@ z-index: 100;
   .home {
     display: flex;
     z-index: 200;
+
+
+
   }
   img {
     height: 50px;
@@ -111,6 +121,7 @@ const ProgressBar = styled.div`
 `;
 
 
+
 class ScrollProgress extends Component {
   componentDidMount() {
       window.onscroll = function() {
@@ -135,23 +146,24 @@ class ScrollProgress extends Component {
 
           const city = document.getElementById("city");
           
-          if (scrolled > 45) {
-            city.style.opacity = "0"
+          if (scrolled > 30) {
+            city.style.opacity = "0";
+            
           } else {
-            city.style.opacity = "1"
+            city.style.opacity = "1";
+
           }
 
           const cityWrap = document.getElementById("cityWrap");
           
-          if (scrolled > 40) {
-            cityWrap.style.top = "47%"
-            cityWrap.style.opacity = "0"
-          } else if (scrolled > 50){
-
+          if (scrolled > 25) {
+            cityWrap.style.top = "47%";
+            cityWrap.style.opacity = "0";
+            // city.style.display = "none";
           } else {
             cityWrap.style.top = "50%";
-            cityWrap.style.opacity = "1"
-
+            cityWrap.style.opacity = "1";
+            // city.style.display = "flex";
           }
 
       };
@@ -184,16 +196,16 @@ class App extends Component {
           <Navigator>
             <div className="home">
               {/* <img src="./img/designcoinlogo.png"/> */}
-              <h4 className="logotext">DESIGNCOIN</h4>
+              <h4 className="logotext"><a href="#top">DESIGNCOIN</a></h4>
               <h4 className="logotext2">DECENTRALIZED DESIGN</h4>
             </div>
             <div className="links">
-              <h4><a href="#services">WHO ARE WE</a></h4>
+              <h4><a href="#about">WHO ARE WE</a></h4>
               <h4><a href="#services">SERVICES</a></h4>
-              <h4><a href="#services">LEADERSHIP</a></h4>
+              <h4><a href="#kevin">LEADERSHIP</a></h4>
               <h4><a href="#contact">CONTACT</a></h4>
             </div>
-            <ScrollProgress></ScrollProgress>
+            <ScrollProgress className="hidemobile"></ScrollProgress>
           </Navigator>
           <Screen screen={this.state.section} text={this.state.text} />
           {/* <div className="navigate">

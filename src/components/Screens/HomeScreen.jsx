@@ -159,10 +159,6 @@ const AboutSection = styled.div`
         line-height: 54px;
         max-width: 800px;
         font-family: 'Roboto Slab';
-        span {
-
-
-        }
 
         .gray {
           color: #4d4d4d;
@@ -671,6 +667,7 @@ const Contact = styled.div`
   z-index: 10;
   background-image: url(./img/beach.png);
   background-size: cover;
+  background-position: top;
 
   padding: 200px 20px;
 

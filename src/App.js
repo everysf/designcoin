@@ -11,7 +11,7 @@ const Screen = props => {
       {(() => {
         switch (props.screen) {
           case 'home':
-            return <HomeScreen />
+            return <HomeScreen theme={props.theme}/>
           default:
             return <h1>Loading...</h1>;
         }
@@ -124,91 +124,143 @@ const ProgressBar = styled.div`
 
 class ScrollProgress extends Component {
   componentDidMount() {
-      window.onscroll = function() {
-          let winScroll =
-              document.body.scrollTop || document.documentElement.scrollTop;
-          let height =
-              document.documentElement.scrollHeight -
-              document.documentElement.clientHeight;
-          let scrolled = (winScroll / height) * 100;
+    window.onscroll = function () {
+      let winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      let height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      let scrolled = (winScroll / height) * 100;
 
-          const barCont = document.getElementById("progressBarCont");
-          const bar = document.getElementById("progressBar");
+      const barCont = document.getElementById("progressBarCont");
+      const bar = document.getElementById("progressBar");
 
-          if (scrolled === 0) {
-              barCont.style.opacity = "0";
-          } else {
-              barCont.style.opacity = "1";
-              bar.style.width = scrolled + "%";
-          }
+      if (scrolled === 0) {
+        barCont.style.opacity = "0";
+      } else {
+        barCont.style.opacity = "1";
+        bar.style.width = scrolled + "%";
+      }
 
-          console.log(scrolled)
+      console.log(scrolled)
 
-          const city = document.getElementById("city");
-          
-          if (scrolled > 30) {
-            city.style.opacity = "0";
-            
-          } else {
-            city.style.opacity = "1";
+      const city = document.getElementById("city");
 
-          }
+      if (scrolled > 30) {
+        city.style.opacity = "0";
 
-          const cityWrap = document.getElementById("cityWrap");
-          
-          if (scrolled > 25) {
-            cityWrap.style.top = "47%";
-            cityWrap.style.opacity = "0";
-            // city.style.display = "none";
-          } else {
-            cityWrap.style.top = "50%";
-            cityWrap.style.opacity = "1";
-            // city.style.display = "flex";
-          }
+      } else {
+        city.style.opacity = "1";
 
-      };
+      }
+
+      const cityWrap = document.getElementById("cityWrap");
+
+      if (scrolled > 25) {
+        cityWrap.style.top = "47%";
+        cityWrap.style.opacity = "0";
+        // city.style.display = "none";
+      } else {
+        cityWrap.style.top = "50%";
+        cityWrap.style.opacity = "1";
+        // city.style.display = "flex";
+      }
+
+    };
   }
 
   render() {
-      return (
-          <Container id="progressBarCont">
-              <ProgressBar id="progressBar" />
-          </Container>
-      );
+    return (
+      <Container id="progressBarCont">
+        <ProgressBar id="progressBar" />
+      </Container>
+    );
   }
 }
+
+const ThemeChanger = styled.div`
+
+  position: fixed;
+  display: flex;
+  z-index: 900;
+  left: 40px;
+  bottom: 40px;
+  border-radius: 5px;
+
+  .themeTitle {
+    font-size: 15px;
+    padding: 10px 10px;
+    opacity: 0;
+    margin-left: -20px;
+    transition: .2s ease;
+  }
+
+  button:hover {
+    background-color: ${props => (props.soma ? "rgba(255,204,255,1)" : "rgba(199,220,221,1)")};
+  }
+
+  button:hover ~ .themeTitle{
+    opacity: 1;
+    margin-left: 0px;
+  }
+
+`
+
+const ThemeButtons = styled.button`
+
+  font-size: 15px;
+  color: black;
+  border-radius: ${props => (props.soma ? "5px 0 0 5px" : "0 5px 5px 0")};
+  padding: 5px 10px;
+  border: none;
+  font-family: "Montserrat";
+  box-shadow: 0px 5px 5px rgba(0,0,0,.1);
+
+`
+
+const ThemeTitle = styled.h3`
+
+
+
+`
 
 class App extends Component {
 
   state = {
     section: "home",
-    text: "jello"
+    text: "jello",
+    theme: "soma",
   }
 
   changeToUI = (arg) => {
     this.setState({ section: arg })
   }
 
+  changeTheme = (arg) => {
+    this.setState({ theme: arg });
+    console.log(this.state.theme);
+  }
+
   render() {
 
     return (
       <div>
-          <Navigator>
-            <div className="home">
-              {/* <img src="./img/designcoinlogo.png"/> */}
-              <h4 className="logotext"><a href="#top">DESIGNCOIN</a></h4>
-              <h4 className="logotext2">DECENTRALIZED DESIGN</h4>
-            </div>
-            <div className="links">
-              <h4><a href="#about">WHO ARE WE</a></h4>
-              <h4><a href="#services">SERVICES</a></h4>
-              <h4><a href="#kevin">LEADERSHIP</a></h4>
-              <h4><a href="#contact">CONTACT</a></h4>
-            </div>
-            <ScrollProgress className="hidemobile"></ScrollProgress>
-          </Navigator>
-          <Screen screen={this.state.section} text={this.state.text} />
-          {/* <div className="navigate">
+        <Navigator>
+          <div className="home">
+            {/* <img src="./img/designcoinlogo.png"/> */}
+            <h4 className="logotext"><a href="#top">DESIGNCOIN</a></h4>
+            <h4 className="logotext2">DECENTRALIZED DESIGN</h4>
+          </div>
+          <div className="links">
+            <h4><a href="#about">WHO ARE WE</a></h4>
+            <h4><a href="#services">SERVICES</a></h4>
+            <h4><a href="#kevin">DESIGNER</a></h4>
+            <h4><a href="#contact">CONTACT</a></h4>
+          </div>
+          <ScrollProgress className="hidemobile"></ScrollProgress>
+        </Navigator>
+        <Screen screen={this.state.section} text={this.state.text} theme={this.state.theme}/>
+        {/* <div className="navigate">
           <h1 className="nav-item" onClick={this.changeToUI.bind(this, "home")}>
             home
           </h1>
@@ -222,6 +274,11 @@ class App extends Component {
             resume
             </h1>
         </div> */}
+        {/* <ThemeChanger>
+          <ThemeButtons soma onClick={this.changeTheme.bind(this, "soma")}>SoMa</ThemeButtons>
+          <ThemeButtons fidi onClick={this.changeTheme.bind(this, "fidi")}>FiDi</ThemeButtons>
+          <ThemeTitle className="themeTitle">Theme Changer</ThemeTitle>
+        </ThemeChanger> */}
       </div>
 
 

@@ -852,7 +852,7 @@ const HomeScreen = props => {
         <div className="bio">
           <div className="headshot"></div>
           <h2></h2>
-          <h3>Kevin Macaraeg designs graphics, interfaces,  websites, and experiences for startups, restaurants, and his own projects. Macaraeg leads a team of designers and developers to produce beautiful and engaging products for clients.</h3><h3 style={{textAlign: "center", marginTop: "20px"}}><a href="https://www.linkedin.com/feed/">See LinkedIn</a></h3>
+          <h3>Kevin Macaraeg designs graphics, interfaces,  websites, and experiences for startups, restaurants, and his own projects. Macaraeg leads a team of designers and developers to produce beautiful and engaging products for clients.</h3><h3 style={{textAlign: "center", marginTop: "20px"}}><a href="https://www.linkedin.com/in/sandiegokevin/">See LinkedIn</a></h3>
         </div>
         <div className="kevin">
           <h2>Experiences</h2>

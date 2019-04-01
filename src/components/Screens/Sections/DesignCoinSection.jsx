@@ -62,7 +62,6 @@ const DesignCoinSection = styled.div`
     .servicesOffered {
       padding: 70px 30px 0;
       box-shadow: 0px 0px 5px rgba(0,0,0,.3);
-      border-radius: 10px;
       max-width: 900px;
       margin: 0 auto;
       background: linear-gradient(to top, ${ props => (props.theme == "soma" ? "rgba(0,0,255,.1)" : "rgba(255, 249, 176, .3)")}, ${ props => (props.theme == "soma" ?  "rgba(255,0,255,.1) 3%": "rgba(0,0,0,.1) 5%")},rgba(0,0,0,0) 10%)

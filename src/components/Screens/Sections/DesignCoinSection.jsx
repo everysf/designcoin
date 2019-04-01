@@ -8,8 +8,7 @@ const DesignCoinSection = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    // background-image: url(./img/wavydesk.png);
-
+   
     @media(max-width: 800px) {
       h3, h4 {
         font-size: 20px !important;
@@ -66,7 +65,7 @@ const DesignCoinSection = styled.div`
       border-radius: 10px;
       max-width: 900px;
       margin: 0 auto;
-      background: linear-gradient(to top, rgba(0,0,255,.1), rgba(255,0,255,.1) 3%,rgba(0,0,0,0) 10%)
+      background: linear-gradient(to top, ${ props => (props.theme == "soma" ? "rgba(0,0,255,.1)" : "rgba(255, 249, 176, .3)")}, ${ props => (props.theme == "soma" ?  "rgba(255,0,255,.1) 3%": "rgba(0,0,0,.1) 5%")},rgba(0,0,0,0) 10%)
 
     }
 
@@ -74,6 +73,7 @@ const DesignCoinSection = styled.div`
       height: 150px;
       margin: 0 auto;
       text-align: center;
+      transition: 2s ease;
 
       @media (max-width: 800px) {
         height: 90px;
@@ -83,6 +83,7 @@ const DesignCoinSection = styled.div`
     }
     
     .ferry {
+      transition: 2s ease;
       display: flex;
       justify-content: center;
     }

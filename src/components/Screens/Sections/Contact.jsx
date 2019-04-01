@@ -4,12 +4,13 @@ const Contact = styled.div`
 
   z-index: 10;
   background-color: #ff00ff;
-  background-image: url(./img/beachdesk.png);
+  background-image: ${ props => (props.theme == "soma" ? "url(img/beachsoma.png)" : "url(img/beachfidi.png)")};
+
   background-size: cover;
   background-position: top;
 
   @media (max-width: 800px) {
-    background-image: url(./img/beachmobile.png);
+    // background-image: url(./img/beachmobile.png);
   }
 
   padding: 200px 20px;
@@ -20,7 +21,8 @@ const Contact = styled.div`
 
   .formEmail {
 
-    color: white;
+    color: ${ props => (props.theme == "soma" ? "white" : "#4d4d4d")};
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -36,11 +38,12 @@ const Contact = styled.div`
 
     a {
       text-align: center;
-      border: 1px solid white;
+      border: 1px solid  ${ props => (props.theme == "soma" ? "white" : "#4d4d4d")};;
       padding: 10px;
       margin: 20px auto 0;
       transition: .2s ease;
       letter-spacing: 2px;
+      color: ${ props => (props.theme == "soma" ? "white" : "#4d4d4d")};
       font-family: 'Roboto Slab';
       @media (max-width: 800px) {
         font-size: 18px;
@@ -48,8 +51,8 @@ const Contact = styled.div`
     }
 
     a:hover {
-      border: 1px solid #0000ff;
-      background-color: #0000ff;
+      border: 1px solid ${ props => (props.theme == "soma" ? "#0000ff" : "#4d4d4d")};
+      background-color: ${ props => (props.theme == "soma" ? "#0000ff" : "#4d4d4d")};
       color: white;
     }
 

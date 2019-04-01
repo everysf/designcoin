@@ -3,18 +3,29 @@ import styled from "styled-components";
 const Leadership = styled.div`
 
   // position: absolute;
-  background-image: url(./img/wavy.png);
+
   min-height: 500px;
   width: 100vw;
-  background-size: cover;
-  padding: 200px 0;
+
+
   display; flex;
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
   color: white;
+  background-image: url(./img/wavy.svg);
   background-repeat: no-repeat;
+  background-size: cover;
+
   z-index: 10;
+
+  .wavy {
+
+    background-image: linear-gradient(to bottom, ${ props => (props.theme == "soma" ? "rgba(0,0,255,1)" : "rgba(21,55, 91,1)")}, ${ props => (props.theme == "soma" ? "rgba(0,0,0,.1)" : "rgba(21,55, 91,.4)")} 50%, ${ props => (props.theme == "soma" ? "rgba(255,255,255,.2)" : "rgba(21,55, 91,.1)")} 60%, rgba(255,255,255,1) 90%);
+    padding: 200px 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 
   @media(max-width: 800px) {
     h3, h4 {
@@ -26,7 +37,10 @@ const Leadership = styled.div`
       font-size: 30px !important;
       margin: 0;
     }
+    .wavy {
     padding: 100px 0 0px;
+    }
+
   }
 
   h1 {
@@ -40,11 +54,11 @@ const Leadership = styled.div`
   }
 
   a:hover {
-    color: #ff00ff;
+    color: ${ props => (props.theme == "soma" ? "#ff00ff" : "#fff9b0")};
   }
   
   .headshot {
-    background: url(./img/thumbnail.jpg);
+    background: ${ props => (props.theme == "soma" ? "url(img/headshotsoma.jpg)" : "url(img/headshotfidi.jpg)")};
     height: 200px;
     width: 200px;
     background-size: cover;
@@ -79,7 +93,7 @@ const Leadership = styled.div`
     justify-content: center;
     border: 1px solid white;
     padding: 40px 0;
-    background: linear-gradient(to top, rgba(0,0,255,.5), rgba(0,0,0,.1) 90%);
+    background: ${ props => (props.theme == "soma" ? "rgba(0,0,255,.3)" : "rgba(21,55, 91,.4)")};
 
     @media (max-width: 800px) {
       margin: 50px 10px !important;

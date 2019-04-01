@@ -23,10 +23,9 @@ const AboutSection = styled.div`
       z-index: 1;
       width: 100vw;
       height: 100vh;
-      background-color: white;
       background: linear-gradient(
         to bottom,
-        rgba(0,0,255,1), 
+        ${props => (props.theme == "soma" ? props.color.soma2 : props.color.fidi1)}, 
         rgba(255,0,255,.0));
         z-index: 5;
       display: flex;
@@ -74,7 +73,7 @@ const AboutSection = styled.div`
           font-weight: 700;
           transition: .5s ease;
           border-bottom: 1px solid rgba(0,0,0,0);
-          background: -webkit-linear-gradient(-30deg, #0000ff, #ff00ff 70%);
+          background: -webkit-linear-gradient(-30deg, ${props => (props.theme == "soma" ? props.color.soma2 : props.color.fidi1)}, ${props => (props.theme == "soma" ? props.color.soma1 : props.color.fidi2)});
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         }
@@ -144,7 +143,7 @@ const AboutSection = styled.div`
           font-weight: 700;
           transition: .5s ease;
           border-bottom: 1px solid rgba(0,0,0,0);
-          background: -webkit-linear-gradient(-30deg, #0000ff, #ff00ff 70%);
+          background: -webkit-linear-gradient(-30deg, ${props => (props.theme == "soma" ? props.color.soma2 : props.color.fidi1)}, ${props => (props.theme == "soma" ? props.color.soma1 : props.color.fidi2)});
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }

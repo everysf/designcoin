@@ -26,7 +26,7 @@ const AboutSection = styled.div`
       background: linear-gradient(
         to bottom,
         ${props => (props.theme == "soma" ? props.color.soma2 : props.color.fidi1)}, 
-        rgba(255,0,255,.0));
+        rgba(255,255,255,.0));
         z-index: 5;
       display: flex;
       justify-content: center;

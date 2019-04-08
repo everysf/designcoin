@@ -424,7 +424,6 @@ class HomeScreen extends Component {
 
         <AboutSection theme={this.state.theme} color={this.themeStyle}>
 
-
           <div className="color"></div>
 
           <BackgroundImage id="cityWrap" theme={this.state.theme} color={this.themeStyle}>

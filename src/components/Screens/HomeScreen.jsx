@@ -439,7 +439,7 @@ class HomeScreen extends Component {
 
           <div className="textAlt">
             <h3>
-              <span className="bold">DESIGNING WITH PASSION</span><br></br><span className="gray">We are here to help you create web products and digital assets that will set you apart from the competition. Hand made digital products with a fast/tech/winning mentality.</span>
+              <span className="bold">DESIGNING WITH PASSION</span><br></br><span className="gray">We are here to help you create web products and digital assets that will set you apart from the competition. Our services are fully custom and delivered with a fast/tech/winning mentality.</span>
             </h3>
           </div>
 

@@ -532,7 +532,7 @@ class HomeScreen extends Component {
           <Contact id="contact" theme={this.state.theme} color={this.themeStyle}>
             <div className="formEmail">
               <h1>Let's Chat</h1>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfY1RgfcvP-ALHKEcxOL_KF7UOpmhai4oaz4AiWV2Z8y-ndIA/viewform?usp=sf_link">CONTACT</a>
+              <a href="mailto:kevin@designcoin.io">CONTACT</a>
             </div>
 
           </Contact>
